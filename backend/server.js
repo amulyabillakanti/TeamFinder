@@ -10,7 +10,7 @@ const messageRoutes = require("./routes/messageRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
 
 const app = express();
-const PORT = Number(process.env.PORT) || 5050;
+const PORT = process.env.PORT || 5050;
 
 const allowedOrigins = (process.env.CLIENT_URL || "http://localhost:5173")
   .split(",")
@@ -63,9 +63,9 @@ async function start() {
 
 start().catch((error) => {
   console.error("Backend startup failed:", error.message);
-  process.exit(1);
+  process.exit(1);;
+  
 });
-const PORT = process.env.PORT || 5050;
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on port ${PORT}`);
